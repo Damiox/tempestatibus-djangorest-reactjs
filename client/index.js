@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
 import {SubscribeReceipt} from './components/SubscribeReceipt';
 import {ConfirmSubscription} from './components/ConfirmSubscription';
@@ -11,8 +11,11 @@ class App extends React.Component {
 		return (
 			<BrowserRouter>
 				<div>
-					<Route exact path='/' component={SubscribeReceipt}></Route>
-			                <Route path='/confirm' component={ConfirmSubscription}></Route>
+					<Switch>
+						<Route path='/subscribe-now' component={SubscribeReceipt}></Route>
+				                <Route path='/confirm/:confirmid' component={ConfirmSubscription}></Route>
+						<Redirect from='/' to='/subscribe-now'></Redirect>
+					</Switch>
 				</div>
 			</BrowserRouter>
 		)
