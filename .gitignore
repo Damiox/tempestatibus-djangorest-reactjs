@@ -3,3 +3,5 @@ dist/
 node_modules/
 env/
 db.sqlite3
+webpack-stats.json
+tempestatibus/static/bundles/

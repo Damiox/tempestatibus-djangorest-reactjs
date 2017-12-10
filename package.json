@@ -1,7 +1,7 @@
 {
   "name": "weatherapp-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "WeatherApp Client in ReactJS",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -15,6 +15,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "webpack": "^3.10.0",
+    "webpack-bundle-tracker": "^0.2.0",
     "webpack-dev-server": "^2.9.6"
   },
   "dependencies": {

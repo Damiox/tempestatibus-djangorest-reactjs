@@ -1,14 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
+const BundleTracker = require('webpack-bundle-tracker')
 
 const config = {
 
-    entry: path.resolve('src/index.js'),
+    entry: {
+	App: path.resolve('./client/index.js')
+    },
 
     output: {
-        path: path.resolve('dist'),
-        filename: 'bundle.js'
+        path: path.resolve('./tempestatibus/static/bundles'),
+        filename: 'bundle-[hash].js'
     },
+
+    plugins: [
+        new BundleTracker({filename: './webpack-stats.json'}),
+    ],
 
     module: {
         rules: [
