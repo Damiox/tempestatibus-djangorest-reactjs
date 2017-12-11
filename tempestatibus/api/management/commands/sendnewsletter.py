@@ -3,6 +3,7 @@ from tempestatibus.api.models import Subscription, Location
 from ._weather_service import WeatherService
 from ._news_notifier import NewsNotifier
 
+# Django Management Command to send newsletter to all the confirmed subscription 
 class Command(BaseCommand):
 	
 	help = 'Sends the newsletter to the subscribed receipts'

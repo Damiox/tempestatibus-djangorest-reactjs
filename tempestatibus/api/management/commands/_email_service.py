@@ -4,13 +4,13 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
+# Service to send an e-mail w/ imageAttachment (optional)
 class EmailService:
 	# You need to configure the sender auth in sendmail
 	SENDER = 'damiox@gmail.com'
 
 	def send(self, receipt, subject, bodyPlain, bodyHtml, imageAttachment):
 		# Create message container - the correct MIME type is multipart/alternative.
-		#msg = MIMEMultipart('alternative')
 		msgRoot = MIMEMultipart('related')
 		msgRoot['Subject'] = subject
 		msgRoot['From'] = EmailService.SENDER

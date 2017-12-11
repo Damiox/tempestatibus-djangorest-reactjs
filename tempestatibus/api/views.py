@@ -10,12 +10,18 @@ from tempestatibus.api.serializers import LocationSerializer
 from tempestatibus.api.management.commands._email_service import EmailService
 
 class LocationView(generics.GenericAPIView):
+    '''
+        API to get all the locations
+    '''
     def get(self, request):
         locations = Location.objects.all()
         serializer = LocationSerializer(locations, many=True)
         return Response(serializer.data)
 
 class ConfirmSubscriptionView(generics.GenericAPIView):
+    '''
+        API to confirm a subscription. After a subscription is confirmed, it is ready to start receiving newsletters
+    '''
     def get(self, request, *args, **kwarg):
         confirmation_id = kwarg.get('confirmation_id')
         try:
@@ -36,6 +42,9 @@ class ConfirmSubscriptionView(generics.GenericAPIView):
         return now - requested_at > timedelta(hours=24)
 
 class SubscribeReceiptView(generics.GenericAPIView):
+    '''
+        API to request a subscription. A subscription needs to be confirmed by the User.
+    '''
     def post(self, request, *args, **kwarg):
         # Parsing request body
         body = json.loads(request.body.decode('utf-8'))

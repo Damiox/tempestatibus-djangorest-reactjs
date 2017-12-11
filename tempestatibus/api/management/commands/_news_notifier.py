@@ -1,5 +1,7 @@
 from ._email_service import EmailService
 
+# News Notifier
+# Based on the Weather, it will send the proper notification via e-mail
 class NewsNotifier:
 	__weather = None
 	__temp_curr = None
@@ -23,11 +25,6 @@ class NewsNotifier:
 		news = self.define_news()
 		news_description = self.define_news_description(receipt, city_name)
 		news_html = '<h1>Newsletter</h1><br /><b>{}</b><br /><center><img src="cid:image"></center>'.format(news_description)
-
-		print(imageAttachment)
-		print(news)
-		print(news_description)
-		print(news_html)
 
 		emailService = EmailService()
 		emailService.send(receipt, news, news_description, news_html, imageAttachment)

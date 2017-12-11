@@ -499,7 +499,7 @@
     "model": "api.location",
     "pk": 63,
     "fields": {
-      "city_name": "Anchorage municipality, AK",
+      "city_name": "Anchorage, AK",
       "population": 298610
     }
   },
