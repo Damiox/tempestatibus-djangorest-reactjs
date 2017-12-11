@@ -1,3 +1,4 @@
 from django.contrib import admin
+from tempestatibus.api.models import Subscription
 
-# Register your models here.
+admin.site.register(Subscription)

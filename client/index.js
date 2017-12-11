@@ -13,7 +13,7 @@ class App extends React.Component {
 				<div>
 					<Switch>
 						<Route path='/subscribe-now' component={SubscribeReceipt}></Route>
-				                <Route path='/confirm/:confirmid' component={ConfirmSubscription}></Route>
+				        <Route path='/confirm-subscription/:id' component={ConfirmSubscription}></Route>
 						<Redirect from='/' to='/subscribe-now'></Redirect>
 					</Switch>
 				</div>

@@ -1,0 +1,802 @@
+[
+  {
+    "model": "api.location",
+    "pk": 1,
+    "fields": {
+      "city_name": "New York City, NY",
+      "population": 8336697
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 2,
+    "fields": {
+      "city_name": "Los Angeles, CA",
+      "population": 3857799
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 3,
+    "fields": {
+      "city_name": "Chicago, IL",
+      "population": 2714856
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 4,
+    "fields": {
+      "city_name": "Houston, TX",
+      "population": 2160821
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 5,
+    "fields": {
+      "city_name": "Philadelphia, PA",
+      "population": 1547607
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 6,
+    "fields": {
+      "city_name": "Phoenix, AZ",
+      "population": 1488750
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 7,
+    "fields": {
+      "city_name": "San Antonio, TX",
+      "population": 1382951
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 8,
+    "fields": {
+      "city_name": "San Diego, CA",
+      "population": 1338348
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 9,
+    "fields": {
+      "city_name": "Dallas, TX",
+      "population": 1241162
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 10,
+    "fields": {
+      "city_name": "San Jose, CA",
+      "population": 982765
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 11,
+    "fields": {
+      "city_name": "Austin, TX",
+      "population": 842592
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 12,
+    "fields": {
+      "city_name": "Jacksonville, FL",
+      "population": 836507
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 13,
+    "fields": {
+      "city_name": "Indianapolis, IN",
+      "population": 834852
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 14,
+    "fields": {
+      "city_name": "San Francisco, CA",
+      "population": 825863
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 15,
+    "fields": {
+      "city_name": "Columbus, OH",
+      "population": 809798
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 16,
+    "fields": {
+      "city_name": "Fort Worth, TX",
+      "population": 777992
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 17,
+    "fields": {
+      "city_name": "Charlotte, NC",
+      "population": 775202
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 18,
+    "fields": {
+      "city_name": "Detroit, MI",
+      "population": 701475
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 19,
+    "fields": {
+      "city_name": "El Paso, TX",
+      "population": 672538
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 20,
+    "fields": {
+      "city_name": "Memphis, TN",
+      "population": 655155
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 21,
+    "fields": {
+      "city_name": "Boston, MA",
+      "population": 636479
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 22,
+    "fields": {
+      "city_name": "Seattle, WA",
+      "population": 634535
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 23,
+    "fields": {
+      "city_name": "Denver, CO",
+      "population": 634265
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 24,
+    "fields": {
+      "city_name": "Washington, DC",
+      "population": 632323
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 25,
+    "fields": {
+      "city_name": "Nashville-Davidson, TN",
+      "population": 624496
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 26,
+    "fields": {
+      "city_name": "Baltimore, MD",
+      "population": 621342
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 27,
+    "fields": {
+      "city_name": "Louisville/Jefferson, KY",
+      "population": 605110
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 28,
+    "fields": {
+      "city_name": "Portland, OR",
+      "population": 603106
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 29,
+    "fields": {
+      "city_name": "Oklahoma , OK",
+      "population": 599199
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 30,
+    "fields": {
+      "city_name": "Milwaukee, WI",
+      "population": 598916
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 31,
+    "fields": {
+      "city_name": "Las Vegas, NV",
+      "population": 596424
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 32,
+    "fields": {
+      "city_name": "Albuquerque, NM",
+      "population": 555417
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 33,
+    "fields": {
+      "city_name": "Tucson, AZ",
+      "population": 524295
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 34,
+    "fields": {
+      "city_name": "Fresno, CA",
+      "population": 505882
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 35,
+    "fields": {
+      "city_name": "Sacramento, CA",
+      "population": 475516
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 36,
+    "fields": {
+      "city_name": "Long Beach, CA",
+      "population": 467892
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 37,
+    "fields": {
+      "city_name": "Kansas , MO",
+      "population": 464310
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 38,
+    "fields": {
+      "city_name": "Mesa, AZ",
+      "population": 452084
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 39,
+    "fields": {
+      "city_name": "Virginia Beach, VA",
+      "population": 447021
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 40,
+    "fields": {
+      "city_name": "Atlanta, GA",
+      "population": 443775
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 41,
+    "fields": {
+      "city_name": "Colorado Springs, CO",
+      "population": 431834
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 42,
+    "fields": {
+      "city_name": "Raleigh, NC",
+      "population": 423179
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 43,
+    "fields": {
+      "city_name": "Omaha, NE",
+      "population": 421570
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 44,
+    "fields": {
+      "city_name": "Miami, FL",
+      "population": 413892
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 45,
+    "fields": {
+      "city_name": "Oakland, CA",
+      "population": 400740
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 46,
+    "fields": {
+      "city_name": "Tulsa, OK",
+      "population": 393987
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 47,
+    "fields": {
+      "city_name": "Minneapolis, MN",
+      "population": 392880
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 48,
+    "fields": {
+      "city_name": "Cleveland, OH",
+      "population": 390928
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 49,
+    "fields": {
+      "city_name": "Wichita, KS",
+      "population": 385577
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 50,
+    "fields": {
+      "city_name": "Arlington, TX",
+      "population": 375600
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 51,
+    "fields": {
+      "city_name": "New Orleans, LA",
+      "population": 369250
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 52,
+    "fields": {
+      "city_name": "Bakersfield, CA",
+      "population": 358597
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 53,
+    "fields": {
+      "city_name": "Tampa, FL",
+      "population": 347645
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 54,
+    "fields": {
+      "city_name": "Honolulu, HI",
+      "population": 345610
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 55,
+    "fields": {
+      "city_name": "Anaheim, CA",
+      "population": 343248
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 56,
+    "fields": {
+      "city_name": "Aurora, CO",
+      "population": 339030
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 57,
+    "fields": {
+      "city_name": "Santa Ana, CA",
+      "population": 330920
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 58,
+    "fields": {
+      "city_name": "St. Louis, MO",
+      "population": 318172
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 59,
+    "fields": {
+      "city_name": "Riverside, CA",
+      "population": 313673
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 60,
+    "fields": {
+      "city_name": "Corpus Christi, TX",
+      "population": 312195
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 61,
+    "fields": {
+      "city_name": "Pittsburgh, PA",
+      "population": 306211
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 62,
+    "fields": {
+      "city_name": "Lexington-Fayette, KY",
+      "population": 305489
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 63,
+    "fields": {
+      "city_name": "Anchorage municipality, AK",
+      "population": 298610
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 64,
+    "fields": {
+      "city_name": "Stockton, CA",
+      "population": 297984
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 65,
+    "fields": {
+      "city_name": "Cincinnati, OH",
+      "population": 296550
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 66,
+    "fields": {
+      "city_name": "St. Paul, MN",
+      "population": 290770
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 67,
+    "fields": {
+      "city_name": "Toledo, OH",
+      "population": 284012
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 68,
+    "fields": {
+      "city_name": "Newark, NJ",
+      "population": 277727
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 69,
+    "fields": {
+      "city_name": "Greensboro, NC",
+      "population": 277080
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 70,
+    "fields": {
+      "city_name": "Plano, TX",
+      "population": 272068
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 71,
+    "fields": {
+      "city_name": "Henderson, NV",
+      "population": 265679
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 72,
+    "fields": {
+      "city_name": "Lincoln, NE",
+      "population": 265404
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 73,
+    "fields": {
+      "city_name": "Buffalo, NY",
+      "population": 259384
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 74,
+    "fields": {
+      "city_name": "Fort Wayne, IN",
+      "population": 254555
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 75,
+    "fields": {
+      "city_name": "Jersey , NJ",
+      "population": 254441
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 76,
+    "fields": {
+      "city_name": "Chula Vista, CA",
+      "population": 252422
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 77,
+    "fields": {
+      "city_name": "Orlando, FL",
+      "population": 249562
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 78,
+    "fields": {
+      "city_name": "St. Petersburg, FL",
+      "population": 246541
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 79,
+    "fields": {
+      "city_name": "Norfolk, VA",
+      "population": 245782
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 80,
+    "fields": {
+      "city_name": "Chandler, AZ",
+      "population": 245628
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 81,
+    "fields": {
+      "city_name": "Laredo, TX",
+      "population": 244731
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 82,
+    "fields": {
+      "city_name": "Madison, WI",
+      "population": 240323
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 83,
+    "fields": {
+      "city_name": "Durham, NC",
+      "population": 239358
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 84,
+    "fields": {
+      "city_name": "Lubbock, TX",
+      "population": 236065
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 85,
+    "fields": {
+      "city_name": "Winston-Salem, NC",
+      "population": 234349
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 86,
+    "fields": {
+      "city_name": "Garland, TX",
+      "population": 233564
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 87,
+    "fields": {
+      "city_name": "Glendale, AZ",
+      "population": 232143
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 88,
+    "fields": {
+      "city_name": "Hialeah, FL",
+      "population": 231941
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 89,
+    "fields": {
+      "city_name": "Reno, NV",
+      "population": 231027
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 90,
+    "fields": {
+      "city_name": "Baton Rouge, LA",
+      "population": 230058
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 91,
+    "fields": {
+      "city_name": "Irvine, CA",
+      "population": 229985
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 92,
+    "fields": {
+      "city_name": "Chesapeake, VA",
+      "population": 228417
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 93,
+    "fields": {
+      "city_name": "Irving, TX",
+      "population": 225427
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 94,
+    "fields": {
+      "city_name": "Scottsdale, AZ",
+      "population": 223514
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 95,
+    "fields": {
+      "city_name": "North Las Vegas, NV",
+      "population": 223491
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 96,
+    "fields": {
+      "city_name": "Fremont, CA",
+      "population": 221986
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 97,
+    "fields": {
+      "city_name": "Gilbert town, AZ",
+      "population": 221140
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 98,
+    "fields": {
+      "city_name": "San Bernardino, CA",
+      "population": 213295
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 99,
+    "fields": {
+      "city_name": "Boise, ID",
+      "population": 212303
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 100,
+    "fields": {
+      "city_name": "Birmingham, AL",
+      "population": 212038
+    }
+  }
+]
