@@ -23,6 +23,8 @@ class ConfirmSubscriptionView(generics.GenericAPIView):
             raise exceptions.ParseError(detail="Subscription was already confirmed")
         if self.is_confirmation_expired(subscription):
             raise exceptions.ParseError(detail="ConfirmationId is expired")
+
+        
         subscription.subscribed = True
         subscription.subscribed_at = timezone.now()
         subscription.save()
