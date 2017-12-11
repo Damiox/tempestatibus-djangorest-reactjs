@@ -1,9 +1,6 @@
 from ._email_service import EmailService
 
 class NewsNotifier:
-	# You need to configure the sender auth in sendmail
-	NEWS_NOTIFIER_SENDER = 'damiox@gmail.com'
-
 	__weather = None
 	__temp_curr = None
 	__temp_diff_avg = None
@@ -33,7 +30,7 @@ class NewsNotifier:
 		print(news_html)
 
 		emailService = EmailService()
-		emailService.send(NewsNotifier.NEWS_NOTIFIER_SENDER, receipt, news, news_description, news_html, imageAttachment)
+		emailService.send(receipt, news, news_description, news_html, imageAttachment)
 
 	def define_image_attachment(self):
 		imageAttachment = None

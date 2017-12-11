@@ -5,6 +5,9 @@ from rest_framework import viewsets, views, generics, exceptions
 from rest_framework.response import Response
 from tempestatibus.api.models import Subscription, Location
 from tempestatibus.api.serializers import LocationSerializer
+#from ..api.email_service import EmailService
+#import tempestatibus.api.email_service
+from tempestatibus.api.management.commands._email_service import EmailService
 
 class LocationView(generics.GenericAPIView):
     def get(self, request):
@@ -13,7 +16,7 @@ class LocationView(generics.GenericAPIView):
         return Response(serializer.data)
 
 class ConfirmSubscriptionView(generics.GenericAPIView):
-    def post(self, request, *args, **kwarg):
+    def get(self, request, *args, **kwarg):
         confirmation_id = kwarg.get('confirmation_id')
         try:
             subscription = Subscription.objects.get(confirmation_id=confirmation_id)
@@ -23,8 +26,6 @@ class ConfirmSubscriptionView(generics.GenericAPIView):
             raise exceptions.ParseError(detail="Subscription was already confirmed")
         if self.is_confirmation_expired(subscription):
             raise exceptions.ParseError(detail="ConfirmationId is expired")
-
-        
         subscription.subscribed = True
         subscription.subscribed_at = timezone.now()
         subscription.save()
@@ -69,5 +70,13 @@ class SubscribeReceiptView(generics.GenericAPIView):
         subscription.location = location
         subscription.confirmation_requested_at = timezone.now()
         subscription.save()
+
+        # we should wrap this into a transaction, and save the subscription iff the email has been sent successfully
+        confirmation_url = request.build_absolute_uri('/')[:-1] + '/confirm-subscription/' + str(subscription.confirmation_id)
+        confirmation_msg_plain = 'You need to confirm your subscription. Please open your browser and go to {}.'.format(confirmation_url)
+        confirmation_msg_html = 'You need to confirm your subscription. Please click <a href="{}">here</a>.'.format(confirmation_url)
+
+        emailService = EmailService()
+        emailService.send(subscription.email, 'Please confirm your subscription', confirmation_msg_plain, confirmation_msg_html, None)
 
         return Response()

@@ -21,7 +21,7 @@ class WeatherService:
 			self.__precipitating = precipitating
 
 		def __str__(self):
-			return 'Weather is {}. Current Temp {}°F, Average=(High={}, Low={}), Precipitating={}'.format(
+			return 'Weather is {}. Current Temp {}F, Average=(High={}, Low={}), Precipitating={}'.format(
 				self.get_weather(), self.get_temp_curr(), self.get_temp_high_avg(), self.get_temp_low_avg(), self.get_precipitating())
 
 		def get_weather(self):

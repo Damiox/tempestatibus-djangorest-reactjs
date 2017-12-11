@@ -5,12 +5,15 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
 class EmailService:
-	def send(self, sender, receipt, subject, bodyPlain, bodyHtml, imageAttachment):
+	# You need to configure the sender auth in sendmail
+	SENDER = 'damiox@gmail.com'
+
+	def send(self, receipt, subject, bodyPlain, bodyHtml, imageAttachment):
 		# Create message container - the correct MIME type is multipart/alternative.
 		#msg = MIMEMultipart('alternative')
 		msgRoot = MIMEMultipart('related')
 		msgRoot['Subject'] = subject
-		msgRoot['From'] = sender
+		msgRoot['From'] = EmailService.SENDER
 		msgRoot['To'] = receipt
 		msgRoot.preamble = 'This is a multi-part message in MIME format.'
 
@@ -41,5 +44,5 @@ class EmailService:
 		s = smtplib.SMTP('localhost')
 		# sendmail function takes 3 arguments: sender's address, recipient's address
 		# and message to send - here it is sent as one string.
-		s.sendmail(sender, receipt, msgRoot.as_string())
+		s.sendmail(EmailService.SENDER, receipt, msgRoot.as_string())
 		s.quit()

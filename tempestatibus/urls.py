@@ -13,9 +13,9 @@ from tempestatibus.api import views
 urlpatterns = [
     #url(r'^api-router/', include(router.urls)),
     #url(r'^api/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^api/v1/location', views.LocationView.as_view()),
-    url(r'^api/v1/subscription$', views.SubscribeReceiptView.as_view()),
-    url(r'^api/v1/subscription/(?P<confirmation_id>[0-9a-z]{32})/confirm', views.ConfirmSubscriptionView.as_view()),
+    url(r'^api/v1/location', views.LocationView.as_view(), name='location'),
+    url(r'^api/v1/subscription$', views.SubscribeReceiptView.as_view(), name='subscription'),
+    url(r'^api/v1/subscription/(?P<confirmation_id>[0-9a-z-]{36})/confirm', views.ConfirmSubscriptionView.as_view(), name='confirm-subscription'),
     url(r'^admin/', admin.site.urls),
     url(r'^', generic.TemplateView.as_view(template_name="index.html"))
 ]
