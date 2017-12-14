@@ -125,9 +125,7 @@ The `./tempestatibus/static` should be served by a known Web Server such as `ngi
 - Add logs
 - Add better comments in the code
 - Need some transaction layer when interacting with the database.
-- Need to test and protect API against sql injection
-- Need to disable debug in the server
-- Improved current functionality in `views.py`.
+- Improved current functionality in `views.py`. Maybe to have 1 file per API.
 - Review Webpack test server as I didn't use it.
 - We should store State in another field in `api_location` table instead of parsing that field later
 
