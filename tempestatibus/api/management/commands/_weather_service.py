@@ -9,8 +9,8 @@ from django.conf import settings
 # Additionally, it adds a Cache (LRU) to avoid getting
 # the Weather for the same Location several times.
 class WeatherService:
-    WUNDERGROUND_APIURL = 'http://api.wunderground.com'
-    '/api/{}/almanac/conditions/q/{}/{}.json'
+    WUNDERGROUND_APIURL = 'http://api.wunderground.com' +\
+        '/api/{}/almanac/conditions/q/{}/{}.json'
 
     class WeatherData:
         __weather = None
@@ -28,8 +28,8 @@ class WeatherService:
             self.__precipitating = precipitating
 
         def __str__(self):
-            return 'Weather is {}. Current Temp {}F,'
-            ' Average=(High={}, Low={}), Precipitating={}'.format(
+            return ('Weather is {}. Current Temp {}F,' +
+                    ' Average=(High={}, Low={}), Precipitating={}').format(
                 self.get_weather(), self.get_temp_curr(),
                 self.get_temp_high_avg(), self.get_temp_low_avg(),
                 self.get_precipitating())
@@ -71,4 +71,9 @@ class WeatherService:
             settings.WUNDERGROUND_APIKEY,
             location_data[1], location_data[0])
         response = requests.get(forecast_url)
-        return json.loads(response.content.decode('utf-8'))
+        try:
+            return json.loads(response.content.decode('utf-8'))
+        except Exception as e:
+            print(e)
+            raise Exception('Unable to query the Wunderground API:' +
+                            forecast_url)

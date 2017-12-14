@@ -15,7 +15,12 @@ class Command(BaseCommand):
         subscriptions = Subscription.objects.filter(
             subscribed=True).values()
         for subscription in subscriptions:
-            self.processSubscription(subscription)
+            try:
+                self.processSubscription(subscription)
+            except Exception as e:
+                print(e)
+                print('Unable to process Subscription ' +
+                      str(subscription['id']))
 
     def processSubscription(self, subscription):
         subscription_id = subscription['id']
@@ -23,20 +28,20 @@ class Command(BaseCommand):
         subscription_location = Location.objects.get(
             id=subscription['location_id'])
 
-        print('Processing subscription id:{}' +
-              ', email:{}, location:{}...'.format(
+        print(('Processing subscription id:{}' +
+              ', email:{}, location:{}...').format(
                 subscription_id,
                 subscription_email, subscription_location.city_name))
         weatherData = Command.weatherService.classify(
             subscription_location.city_name)
-        print("Weather {} -> subscription {}".format(
-            weatherData, subscription_id))
+        print("Subscription id:{} with {}".format(
+            subscription_id, weatherData))
 
         newsNotifier = NewsNotifier(weatherData)
         newsNotifier.send_newsletter(
             subscription_email, subscription_location.city_name)
 
-        print('Completed processing subscription id:{}' +
-              ', email:{}, location:{}.'.format(
+        print(('Completed processing subscription id:{}' +
+              ', email:{}, location:{}.').format(
                 subscription_id,
                 subscription_email, subscription_location.city_name))

@@ -1,3 +1,4 @@
+from django.conf import settings
 from ._email_service import EmailService
 
 
@@ -28,14 +29,25 @@ class NewsNotifier:
         imageAttachment = self.define_image_attachment()
         news = self.define_news()
         news_description = self.define_news_description(receipt, city_name)
-        news_html = '<h1>Newsletter</h1><br /><b>{}</b><br />' + \
-            '<center><img src="cid:image"></center>'.format(news_description)
+
+        # Reading the newsletter from disk...
+        with open('./tempestatibus/api' +
+                  '/management/commands/templates/newsletter.txt') as file:
+            news_txt = file.read()
+        with open('./tempestatibus/api' +
+                  '/management/commands/templates/newsletter.html') as file:
+            news_html = file.read()
+
+        # Building the newsletter txt and html version
+        unsubscribe_url = settings.API_URL + '/unsubscribe/' + receipt
+        news_txt = news_txt.format(receipt, city_name,
+                                   self.__temp_curr, self.__weather,
+                                   unsubscribe_url)
+        news_html = news_html.format(news_description, unsubscribe_url)
 
         # Sending email...
         emailService = EmailService()
-        emailService.send(
-            receipt, news, news_description, news_html,
-            imageAttachment)
+        emailService.send(receipt, news, news_txt, news_html, imageAttachment)
 
     def define_image_attachment(self):
         imageAttachment = None
@@ -63,7 +75,8 @@ class NewsNotifier:
         return news
 
     def define_news_description(self, receipt, city_name):
-        news_description = 'Hi {}!' + \
-            ' - Weather today for {} is {} degrees, {}.'.format(
+        news_description = ('Hi {}!' +
+                            ' - Weather today for {} is {}' +
+                            ' degrees, {}.').format(
                 receipt, city_name, self.__temp_curr, self.__weather)
         return news_description

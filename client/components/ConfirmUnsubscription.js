@@ -1,16 +1,16 @@
 import React from 'react';
 import {getCookie} from '../util';
 import {Col} from 'react-bootstrap';
-import {ConfirmSubscriptionResult} from './ConfirmSubscriptionResult';
+import {ConfirmUnsubscriptionResult} from './ConfirmUnsubscriptionResult';
 
-export class ConfirmSubscription extends React.Component {
+export class ConfirmUnsubscription extends React.Component {
     constructor(props) {
         super(props);
         this.state = { confirmationId: this.props.match.params.id, resultState: null };
     }
 
     componentDidMount() {
-        fetch('/api/v1/subscription/' + this.state.confirmationId + '/confirm', {
+        fetch('/api/v1/unsubscription/' + this.state.confirmationId + '/confirm', {
             method: 'post',
             credentials: 'same-origin',
             headers: {
@@ -19,11 +19,7 @@ export class ConfirmSubscription extends React.Component {
         })
         .then(result => {
             if (result.ok) {
-                if (result.state == 201) {
-                    this.setState({ resultState: 'SUCCESS_NEW' });
-                } else {
-                    this.setState({ resultState: 'SUCCESS_UPDATE' });
-                }
+                this.setState({ resultState: 'SUCCESS' });
             } else {
                 this.setState({ resultState: 'ERROR' });
             }
@@ -33,7 +29,7 @@ export class ConfirmSubscription extends React.Component {
     render() {
         return (
             <Col smOffset={3} sm={6} mdOffset={4} md={4}>
-                <ConfirmSubscriptionResult resultState={ this.state.resultState } />
+                <ConfirmUnsubscriptionResult resultState={ this.state.resultState } />
             </Col>
         );
     }

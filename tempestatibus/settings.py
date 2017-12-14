@@ -17,8 +17,9 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 WUNDERGROUND_APIKEY = os.environ.get('WUNDERGROUND_APIKEY')
-DEBUG = True
+API_URL = os.environ.get('API_URL', 'http://localhost:8000')
 API_BASE_PREFIX = '/api/v1'
+DEBUG = True
 
 if WUNDERGROUND_APIKEY is None:
     raise ImproperlyConfigured('Wunderground API Key is missing.')

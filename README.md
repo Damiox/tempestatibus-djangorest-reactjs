@@ -95,7 +95,6 @@ If flake8 detects any error then the details will be printed out.
 - Add logs
 - Add better comments in the code
 - Need some transaction layer when interacting with the database.
-- Need to add CSRF protection
 - Need to test and protect API against sql injection
 - Need to disable debug in the server
 - Improved current functionality in `views.py`.

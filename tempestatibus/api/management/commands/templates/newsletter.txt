@@ -1,0 +1,3 @@
+Hi {}! - Weather today for {} is {} degrees, {}.
+You should consider enabling html support in your mail client.
+If you want to unsubscribe, go to {}

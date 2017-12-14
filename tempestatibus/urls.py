@@ -19,9 +19,17 @@ urlpatterns = [
         ensure_csrf_cookie(views.SubscribeReceiptView.as_view()),
         name='subscription'),
     url(urlPrefix
+        + r'/unsubscription$',
+        ensure_csrf_cookie(views.UnsubscribeReceiptView.as_view()),
+        name='unsubscription'),
+    url(urlPrefix
         + r'/subscription/(?P<confirmation_id>[0-9a-z-]{36})/confirm$',
         ensure_csrf_cookie(views.ConfirmSubscriptionView.as_view()),
         name='confirm-subscription'),
+    url(urlPrefix
+        + r'/unsubscription/(?P<confirmation_id>[0-9a-z-]{36})/confirm$',
+        ensure_csrf_cookie(views.ConfirmUnsubscriptionView.as_view()),
+        name='confirm-unsubscription'),
     url(r'^/admin/',
         admin.site.urls),
     url(r'^',
