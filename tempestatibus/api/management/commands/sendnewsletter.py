@@ -1,32 +1,42 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from tempestatibus.api.models import Subscription, Location
 from ._weather_service import WeatherService
 from ._news_notifier import NewsNotifier
 
-# Django Management Command to send newsletter to all the confirmed subscription 
+
+# Django Management Command to send newsletter
+# to all the confirmed subscription
 class Command(BaseCommand):
-	
-	help = 'Sends the newsletter to the subscribed receipts'
-	weatherService = WeatherService()
 
-	def handle(self, *args, **options):
-		subscriptions = Subscription.objects.filter(subscribed=True).values()
-		for subscription in subscriptions:
-			self.processSubscription(subscription)
+    help = 'Sends the newsletter to the subscribed receipts'
+    weatherService = WeatherService()
 
-	def processSubscription(self, subscription):
-		subscription_id = subscription['id']
-		subscription_email = subscription['email']
-		subscription_location = Location.objects.get(id=subscription['location_id']); 
+    def handle(self, *args, **options):
+        subscriptions = Subscription.objects.filter(
+            subscribed=True).values()
+        for subscription in subscriptions:
+            self.processSubscription(subscription)
 
-		print("Processing subscription id:{}, email:{}, location:{}...".format(
-			subscription_id, subscription_email, subscription_location.city_name)
-		)
-		weatherData = Command.weatherService.classify(subscription_location.city_name)
-		print("Weather {} -> subscription {}".format(weatherData, subscription_id))
+    def processSubscription(self, subscription):
+        subscription_id = subscription['id']
+        subscription_email = subscription['email']
+        subscription_location = Location.objects.get(
+            id=subscription['location_id'])
 
-		newsNotifier = NewsNotifier(weatherData)
-		newsNotifier.send_newsletter(subscription_email, subscription_location.city_name)
+        print('Processing subscription id:{}'
+              ', email:{}, location:{}...'.format(
+                subscription_id,
+                subscription_email, subscription_location.city_name))
+        weatherData = Command.weatherService.classify(
+            subscription_location.city_name)
+        print("Weather {} -> subscription {}".format(
+            weatherData, subscription_id))
 
-		print("Completed processing subscription id:{}, email:{}, location:{}.".format(
-			subscription_id, subscription_email, subscription_location.city_name))
+        newsNotifier = NewsNotifier(weatherData)
+        newsNotifier.send_newsletter(
+            subscription_email, subscription_location.city_name)
+
+        print('Completed processing subscription id:{}'
+              ', email:{}, location:{}.'.format(
+                subscription_id,
+                subscription_email, subscription_location.city_name))

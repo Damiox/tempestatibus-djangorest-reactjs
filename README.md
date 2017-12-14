@@ -82,6 +82,15 @@ Currently, this feature is being implemented by running a Django management comm
 $ python manage.py sendnewsletter
 ```
 
+## Code Linting
+
+There is a unit test (test_flake8_conformance) defined that will run `flake8` (http://flake8.pycqa.org/en/latest/user/index.html) to parse the solution code and look for mistakes. To use it simply run the following command from the solution directory:
+```
+$ python manage.py test
+```
+
+If flake8 detects any error then the details will be printed out.
+
 ## TODO
 - Add logs
 - Add better comments in the code
@@ -97,3 +106,6 @@ $ python manage.py sendnewsletter
 - Take into account Location's Timezone to send newsletter daily at the proper time.
 - Review sendmail queueing functionality if the system grows.
 - Beautify the HTML e-mail body.
+
+
+
