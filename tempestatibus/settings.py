@@ -11,25 +11,19 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from django.core.exceptions import ImproperlyConfigured
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Environment Variables
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sa(tl+u+10&@&p8*bpfbxn@&xyw-v+$tioksb45eahqbs*gc))'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+SECRET_KEY = os.environ.get('SECRET_KEY')
+WUNDERGROUND_APIKEY = os.environ.get('WUNDERGROUND_APIKEY')
 DEBUG = True
-ALLOWED_HOSTS = []
+API_BASE_PREFIX = '/api/v1'
+
+if WUNDERGROUND_APIKEY is None:
+    raise ImproperlyConfigured('Wunderground API Key is missing.')
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -93,7 +87,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation'
@@ -113,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Rest Framework Configuration
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -123,23 +117,17 @@ REST_FRAMEWORK = {
 }
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+# Note: https://docs.djangoproject.com/en/2.0/howto/static-files/deployment/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'tempestatibus/static'),
+    'static'
 ]

@@ -24,7 +24,7 @@ class ConfirmSubscriptionView(generics.GenericAPIView):
         API to confirm a subscription. After a subscription is confirmed,
         it is ready to start receiving newsletters
     '''
-    def get(self, request, *args, **kwarg):
+    def post(self, request, *args, **kwarg):
         confirmation_id = kwarg.get('confirmation_id')
         try:
             subscription = Subscription.objects.get(
@@ -97,12 +97,13 @@ class SubscribeReceiptView(generics.GenericAPIView):
 
         # we should wrap this into a transaction, and save the
         # subscription iff the email has been sent successfully
-        confirmation_url = request.build_absolute_uri('/')[:-1]
-        + '/confirm-subscription/' + str(subscription.confirmation_id)
-        confirmation_msg_plain = 'You need to confirm your subscription. '
-        'Please open your browser and go to {}.'.format(confirmation_url)
-        confirmation_msg_html = 'You need to confirm your subscription. '
-        'Please click <a href="{}">here</a>.'.format(confirmation_url)
+        confirmation_url = '{}/confirm-subscription/{}'.format(
+            request.build_absolute_uri('/')[:-1],
+            str(subscription.confirmation_id))
+        confirmation_msg_plain = 'You need to confirm your subscription. ' + \
+            'Please open your browser and go to {}.'.format(confirmation_url)
+        confirmation_msg_html = 'You need to confirm your subscription. ' + \
+            'Please click <a href="{}">here</a>.'.format(confirmation_url)
 
         emailService = EmailService()
         emailService.send(

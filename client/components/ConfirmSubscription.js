@@ -8,7 +8,9 @@ export class ConfirmSubscription extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch('/api/v1/subscription/' + this.props.match.params.id + '/confirm')
+		fetch('/api/v1/subscription/' + this.props.match.params.id + '/confirm', {
+			method: 'post'
+		})
 		.then(result => {
 			if (result.ok) {
 				this.setState({ confirmationSuccess: true });

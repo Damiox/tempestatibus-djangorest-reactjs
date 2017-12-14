@@ -1,19 +1,30 @@
 from django.views import generic
+from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.decorators.csrf import ensure_csrf_cookie
 from tempestatibus.api import views
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
+# Removing first slash as it is unnecessary
+urlPrefix = r'^' + settings.API_BASE_PREFIX[1:]
+
+# Url definitions for the Rest API and the web content
 urlpatterns = [
-    url(r'^api/v1/location',
-        views.LocationView.as_view(), name='location'),
-    url(r'^api/v1/subscription$',
-        views.SubscribeReceiptView.as_view(), name='subscription'),
-    url(r'^api/v1/subscription/(?P<confirmation_id>[0-9a-z-]{36})/confirm',
-        views.ConfirmSubscriptionView.as_view(), name='confirm-subscription'),
-    url(r'^admin/',
+    url(urlPrefix
+        + r'/location$',
+        ensure_csrf_cookie(views.LocationView.as_view()),
+        name='location'),
+    url(urlPrefix
+        + r'/subscription$',
+        ensure_csrf_cookie(views.SubscribeReceiptView.as_view()),
+        name='subscription'),
+    url(urlPrefix
+        + r'/subscription/(?P<confirmation_id>[0-9a-z-]{36})/confirm$',
+        ensure_csrf_cookie(views.ConfirmSubscriptionView.as_view()),
+        name='confirm-subscription'),
+    url(r'^/admin/',
         admin.site.urls),
     url(r'^',
-        generic.TemplateView.as_view(template_name="index.html"))
+        ensure_csrf_cookie(generic.TemplateView.as_view(
+            template_name="index.html")))
 ]

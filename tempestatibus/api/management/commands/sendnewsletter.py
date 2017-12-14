@@ -23,7 +23,7 @@ class Command(BaseCommand):
         subscription_location = Location.objects.get(
             id=subscription['location_id'])
 
-        print('Processing subscription id:{}'
+        print('Processing subscription id:{}' +
               ', email:{}, location:{}...'.format(
                 subscription_id,
                 subscription_email, subscription_location.city_name))
@@ -36,7 +36,7 @@ class Command(BaseCommand):
         newsNotifier.send_newsletter(
             subscription_email, subscription_location.city_name)
 
-        print('Completed processing subscription id:{}'
+        print('Completed processing subscription id:{}' +
               ', email:{}, location:{}.'.format(
                 subscription_id,
                 subscription_email, subscription_location.city_name))

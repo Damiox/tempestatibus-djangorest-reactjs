@@ -28,8 +28,8 @@ class NewsNotifier:
         imageAttachment = self.define_image_attachment()
         news = self.define_news()
         news_description = self.define_news_description(receipt, city_name)
-        news_html = '<h1>Newsletter</h1><br /><b>{}</b><br />'
-        '<center><img src="cid:image"></center>'.format(news_description)
+        news_html = '<h1>Newsletter</h1><br /><b>{}</b><br />' + \
+            '<center><img src="cid:image"></center>'.format(news_description)
 
         # Sending email...
         emailService = EmailService()
@@ -63,7 +63,7 @@ class NewsNotifier:
         return news
 
     def define_news_description(self, receipt, city_name):
-        news_description = 'Hi {}!'
-        ' - Weather today for {} is {} degrees, {}.'.format(
-            receipt, city_name, self.__temp_curr, self.__weather)
+        news_description = 'Hi {}!' + \
+            ' - Weather today for {} is {} degrees, {}.'.format(
+                receipt, city_name, self.__temp_curr, self.__weather)
         return news_description

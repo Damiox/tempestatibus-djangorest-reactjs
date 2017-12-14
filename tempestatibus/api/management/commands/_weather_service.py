@@ -1,6 +1,7 @@
 import requests
 import json
 from functools import lru_cache
+from django.conf import settings
 
 
 # WeatherService - current implementation is Wunderground API
@@ -10,7 +11,6 @@ from functools import lru_cache
 class WeatherService:
     WUNDERGROUND_APIURL = 'http://api.wunderground.com'
     '/api/{}/almanac/conditions/q/{}/{}.json'
-    WUNDERGROUND_APIKEY = 'bee225e8b1264f1c'
 
     class WeatherData:
         __weather = None
@@ -68,7 +68,7 @@ class WeatherService:
     def getWeather(self, city_name):
         location_data = city_name.split(', ')
         forecast_url = WeatherService.WUNDERGROUND_APIURL.format(
-            WeatherService.WUNDERGROUND_APIKEY,
+            settings.WUNDERGROUND_APIKEY,
             location_data[1], location_data[0])
         response = requests.get(forecast_url)
         return json.loads(response.content.decode('utf-8'))
