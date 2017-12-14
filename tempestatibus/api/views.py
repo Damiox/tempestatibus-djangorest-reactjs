@@ -1,8 +1,9 @@
-import re
 import json
 import uuid
 from datetime import timedelta
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 from django.utils import timezone
 from rest_framework import generics, exceptions
 from rest_framework.response import Response
@@ -102,7 +103,9 @@ class SubscribeReceiptView(generics.GenericAPIView):
         email = body['email']
         city_name = body['city_name']
 
-        if not re.compile(r"[^@]+@[^@]+\.[^@]+").match(email):
+        try:
+            validate_email(email)
+        except ValidationError:
             raise exceptions.ParseError(
                 detail="email is invalid")
 

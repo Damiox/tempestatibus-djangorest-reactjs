@@ -20,7 +20,7 @@ $ sudo apt install python3.5 pip
 Additionally, you need to have sendmail installed and properly configured.
 Please follow this guide for more information about how to configure sendmail: https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay
 
-## Get Started
+## Getting Started
 
 You create a virtual environment for this Python solution:
 ```
@@ -39,6 +39,13 @@ Then, you need to set up the local database (sqlite) by running the following Dj
 (env) $ python manage.py migrate
 (env) $ python manage.py loaddata --verbosity=2 tempestatibus/fixtures/top100uscities.json
 ```
+
+## Setting the Configuration Variables
+
+This solution requires the following configuration variables to be set:
+* SECRET_KEY: referred to the key being used to generate internal hashes, among others. Set it to a random String.
+* WUNDERGROUND_APIKEY: referred to the key obtained in the Wunderground API website (https://www.wunderground.com/weather/api/)
+* API_URL (optional): it's the public URL for the API clients to use this API.
 
 ## Looking around the Database
 
@@ -90,6 +97,29 @@ $ python manage.py test
 ```
 
 If flake8 detects any error then the details will be printed out.
+
+## Web Client (ReactJS)
+
+To build the client side, please execute the below command:
+```
+$ npm run build
+```
+
+This will run webpack which will build the React JS components.
+
+If succeeded, then it will create a bundle file that will be located at: ./tempestatibus/static/bundles/bundle-[hash].js
+At the same time, we have configured django-webpack-loader in settings.py in Django to track (through ./webpack-stats.json) when webpack creates a new bundle file, and automatically load it for testing.
+
+### Structure
+
+`index.js`: the solution is using React Router 4 to make an internal routing in client-side to the corresponding web component.
+`util.js`: small utility to get a cookie value by name. It's being used to send the CSRF Token in the Ajax request.
+`components/`: this folder contains all the React components being used for the solution.
+
+### Notes when deploying to production
+
+The `./tempestatibus/static` should be served by a known Web Server such as `nginx`, which is good for static content management and delivery, and then this Web Server should also act as a Web Proxy to interact with the Django REST API in a controlled local network. Django should listen to API requests into whatever TCP port in a local address accessible from the Web Proxy. The Web Proxy would be mapping `{hostname}/api/v1` to the Django REST API. Thus, this Web Server/Proxy would be the only component being exposed to the Internet.
+
 
 ## TODO
 - Add logs
